@@ -1,7 +1,0 @@
-ignore everything
-*.*
-# but
-!.gitignore
-!.gitattributes
-!*.md
-!*.js
