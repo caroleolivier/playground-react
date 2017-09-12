@@ -59,8 +59,8 @@ class Calculator extends Component {
     }
 
     render() {
-        const fahrenheit = this.state.scale == "f" ? this.state.temperature : tryConvert(this.state.temperature, toFahrenheit);
-        const celsius = this.state.scale == "c" ? this.state.temperature : tryConvert(this.state.temperature, toCelsius);
+        const fahrenheit = this.state.scale === "f" ? this.state.temperature : tryConvert(this.state.temperature, toFahrenheit);
+        const celsius = this.state.scale === "c" ? this.state.temperature : tryConvert(this.state.temperature, toCelsius);
         return (
             <div>
                 <TemperatureInput scale="c" temperature={celsius} onTemperatureChange={this.onCelsiusInputChange}/>
