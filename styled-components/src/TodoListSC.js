@@ -1,5 +1,5 @@
 import * as React from 'react';
-import style from './TodoList.scss';
+import styled from 'styled-components';
 
 export default class TodoListContainer extends React.Component {
     render() {
@@ -10,23 +10,21 @@ export default class TodoListContainer extends React.Component {
             { name: 'book holiday', done: false }
         ];
         return (
-            <div className={style.todoList}>
-                <TodoListHeader />
+            <Container>
+                <TodoListHeader>Todo List</TodoListHeader>
                 <TodoListItems todos={todos} />
-            </div>
+            </Container>
         );
     }
 }
 
-class TodoListHeader extends React.Component {
-    render() {
-        return (
-            <h1 className={style.header}>
-                Todo List
-            </h1>
-        );
-    }
-}
+const Container = styled.div`
+    font: 'monospace';
+`;
+
+const TodoListHeader = styled.h1`
+    color: deeppink;
+`;
 
 class TodoListItems extends React.Component {
     render() {
@@ -40,24 +38,41 @@ class TodoListItems extends React.Component {
     }
 }
 
+const FlexRowContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
 class TodoListItemsHeader extends React.Component {
     render() {
         return (
-            <div className={style.flexRowContainer}>
-                <h4 className={style.headerItem}>Name</h4>
-                <h4 className={style.headerItem}>Done</h4>
-            </div>
+            <FlexRowContainer>
+                <TodoListItemsHeaderItem>Name</TodoListItemsHeaderItem>
+                <TodoListItemsHeaderItem>Done</TodoListItemsHeaderItem>
+            </FlexRowContainer>
         );
     }
 }
 
+const TodoListItemsHeaderItem = styled.h4`
+    width: 15em;
+`;
+
+const TodoItemName = styled.div`
+    width: 15em;
+`;
+
+const TodoItemDone = styled.div`
+    width: 15em;
+`;
+
 class TodoItem extends React.Component {
     render() {
         return (
-            <div className={style.flexRowContainer}>
-                <div className={style.item}>{this.props.name}</div>
-                <div className={style.item}>{this.props.done.toString()}</div>
-            </div>
+            <FlexRowContainer>
+                <TodoItemName>{this.props.name}</TodoItemName>
+                <TodoItemDone>{this.props.done.toString()}</TodoItemDone>
+            </FlexRowContainer>
         );
     }
 }

@@ -1,23 +1,18 @@
 .todoList {
-    font: 'Roboto';
+    font-family: 'monospace';
 }
 
 .header {
     color: deeppink;
 }
 
-.todoListItemHeader {
+.flexRowContainer {
     display: flex;
     flex-direction: row;
 }
 
 .headerItem {
     width: 15em;
-}
-
-.itemContainer {
-    display: flex;
-    flex-direction: row;
 }
 
 .item {
