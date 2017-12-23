@@ -1,0 +1,25 @@
+.todoList {
+    font: 'Roboto';
+}
+
+.header {
+    color: deeppink;
+}
+
+.todoListItemHeader {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerItem {
+    width: 15em;
+}
+
+.itemContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    width: 15em;
+}
