@@ -9,10 +9,17 @@ export default class TodoListContainer extends React.Component {
             { name: 'shop grocery', done: false },
             { name: 'book holiday', done: false }
         ];
+        const todoItems = todos.map(todo => <TodoItem key={todo.name} name={todo.name} done={todo.done} />);
         return (
             <Container>
-                <TodoListHeader>Todo List</TodoListHeader>
-                <TodoListItems todos={todos} />
+                <TodoListTitle>Todo List</TodoListTitle>
+                <div>
+                    <TodoListHeader>
+                        <TodoListItemsHeaderItem>Name</TodoListItemsHeaderItem>
+                        <TodoListItemsHeaderItem>Done</TodoListItemsHeaderItem>
+                    </TodoListHeader>
+                    {todoItems}
+                </div>
             </Container>
         );
     }
@@ -22,37 +29,19 @@ const Container = styled.div`
     font: 'monospace';
 `;
 
-const TodoListHeader = styled.h1`
+const TodoListTitle = styled.h1`
     color: deeppink;
 `;
 
-class TodoListItems extends React.Component {
-    render() {
-        const todoItems = this.props.todos.map(todo => <TodoItem key={todo.name} name={todo.name} done={todo.done} />);
-        return (
-            <div>
-                <TodoListItemsHeader />
-                {todoItems}
-            </div>
-        );
-    }
-}
-
-const FlexRowContainer = styled.div`
+const TodoListHeader = styled.div`
     display: flex;
     flex-direction: row;
 `;
 
-class TodoListItemsHeader extends React.Component {
-    render() {
-        return (
-            <FlexRowContainer>
-                <TodoListItemsHeaderItem>Name</TodoListItemsHeaderItem>
-                <TodoListItemsHeaderItem>Done</TodoListItemsHeaderItem>
-            </FlexRowContainer>
-        );
-    }
-}
+const TodoItemContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
 
 const TodoListItemsHeaderItem = styled.h4`
     width: 15em;
@@ -69,10 +58,10 @@ const TodoItemDone = styled.div`
 class TodoItem extends React.Component {
     render() {
         return (
-            <FlexRowContainer>
+            <TodoItemContainer>
                 <TodoItemName>{this.props.name}</TodoItemName>
                 <TodoItemDone>{this.props.done.toString()}</TodoItemDone>
-            </FlexRowContainer>
+            </TodoItemContainer>
         );
     }
 }

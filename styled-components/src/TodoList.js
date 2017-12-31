@@ -11,18 +11,18 @@ export default class TodoListContainer extends React.Component {
         ];
         return (
             <div className={style.todoList}>
-                <TodoListHeader />
+                <TodoListTitle>Todo List</TodoListTitle>
                 <TodoListItems todos={todos} />
             </div>
         );
     }
 }
 
-class TodoListHeader extends React.Component {
+class TodoListTitle extends React.Component {
     render() {
         return (
             <h1 className={style.header}>
-                Todo List
+                {this.props.children}
             </h1>
         );
     }
