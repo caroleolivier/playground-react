@@ -19,25 +19,21 @@ function visibilityFilterReducer(state=VISIBILITY_FILTER.SHOW_ALL, action) {
 function todosReducer(state=[], action) {
     switch(action.type) {
         case ADD_TODO:
-            return Object.assign({}, state, {
-                todos: [
+            return [
                     ...state,
                     {
                         text: action.text,
                         completed: false
                     }
-                ]
-            });
+                ];
         case TOGGLE_TODO:
-            return Object.assign({}, state, {
-                todos: state.map((todo) => {
-                    if(todo.index == action.index) {
+            return state.map((todo, index) => {
+                    if(index == action.index) {
                         Object.assign({}, todo, {
                             completed: !todo.completed
                         })
                     }
-                })
-            });
+                });
         default:
             return state;
     }
