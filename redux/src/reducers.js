@@ -8,6 +8,7 @@ const initialState = {
 };
 
 function visibilityFilterReducer(state=VISIBILITY_FILTER.SHOW_ALL, action) {
+    debugger;
     switch(action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter;
@@ -17,6 +18,7 @@ function visibilityFilterReducer(state=VISIBILITY_FILTER.SHOW_ALL, action) {
 }
 
 function todosReducer(state=[], action) {
+    debugger;
     switch(action.type) {
         case ADD_TODO:
             return [
